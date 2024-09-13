@@ -9,7 +9,7 @@ export default function Labs(){
     return (
     <div id = "wd-labs">
 
-        <h1>Shiv Bhutani</h1>  
+        <h1>Shiv Bhutani </h1>  
         <h2>Labs</h2>
         <TOC/>
         <Routes>
