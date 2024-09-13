@@ -9,7 +9,7 @@ export default function KanbasNavigation(){
             <br />
             <Link id = "wd-dashboard-link" to = "/Kanbas/Dashboard">Dashboard</Link>
             <br />
-            <Link id = "wd-course-link" to = "/Kanbas/Courses">Courses</Link>
+            <Link id = "wd-course-link" to = "/Kanbas/Dashboard">Courses</Link>
             <br />
             <Link id = "wd-calendar-link" to= "/Kanbas/Calendar">Calendar</Link>
             <br />

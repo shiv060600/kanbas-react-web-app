@@ -8,7 +8,9 @@ import Kanbas from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web
 export default function Labs(){
     return (
     <div id = "wd-labs">
-        <h1>Labs</h1>  
+
+        <h1>Shiv Bhutani</h1>  
+        <h2>Labs</h2>
         <TOC/>
         <Routes>
             <Route path = "/" element = {<Navigate to = "Lab1" />} />
