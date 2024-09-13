@@ -1,10 +1,10 @@
 import React from "react";
 import { Navigate,Routes,Route } from "react-router-dom";
-import CoursesNavigation from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/Navigation.tsx";
-import Modules from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/Modules.tsx";
-import Home from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/Home/index.tsx";
-import Assignments from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/Assignments/index.tsx";
-import AssignmentEditor from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/Assignments/Editor.tsx";
+import CoursesNavigation from "./Navigation.tsx";
+import Home from "./Home/index.tsx";
+import Modules from "./Modules/index.tsx";
+import Assignments from "./Assignments/index.tsx";
+import AssignmentEditor from "./Assignments/Editor.tsx";
 export default function Courses(){
     return(
         <div id = "wd-courses">

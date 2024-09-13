@@ -1,5 +1,5 @@
 import React from "react";
-import Modules from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/Modules.tsx";
+import Modules from "../Modules/index.tsx";
 import CourseStatus from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/Home/status.tsx";
 
 export default function Home() {

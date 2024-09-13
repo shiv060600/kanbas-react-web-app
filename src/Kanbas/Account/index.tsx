@@ -1,8 +1,8 @@
 import React from 'react';
-import Signin from '/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Account/Signin.tsx';
-import Profile from '/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Account/Profile.tsx';
-import Signup from '/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Account/Signup.tsx';
-import AccountNavigation from '/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Account/Navigation.tsx'
+import Signin from './Signin.tsx';
+import Profile from './Profile.tsx';
+import Signup from './Signup.tsx';
+import AccountNavigation from './Navigation.tsx'
 import { Routes, Route, Navigate } from "react-router";
 export default function Account() {
     return (

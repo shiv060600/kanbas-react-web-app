@@ -1,9 +1,9 @@
 import React from "react";
 import {Routes,Route,Navigate} from 'react-router-dom'
-import Account from '/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Account/index.tsx' 
-import Dashboard from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/dashboard.tsx"
-import KanbasNavigation from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Nagivation.tsx";
-import Courses from "/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Courses/index.tsx";
+import Account from "./Account/index.tsx" 
+import Dashboard from "./dashboard.tsx"
+import KanbasNavigation from "./Nagivation.tsx";
+import Courses from "./Courses/index.tsx";
 export default function Kanbas() {
     return (
       <div id="wd-kanbas">

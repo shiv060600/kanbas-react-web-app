@@ -1,6 +1,6 @@
 import React from "react"
-import Labs from '/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Labs/index.tsx';
-import Kanbas from '/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/index.tsx';
+import Labs from '../Labs/index.tsx';
+import Kanbas from '../Kanbas/index.tsx';
 import { HashRouter, Routes, Route, Navigate,Link } from "react-router-dom";
 
 export default function TOC() {
