@@ -107,7 +107,7 @@ Text documents are often broken up into several sections and subsections.
                 <br />
                 Loading a local image:
                 <img id = 'wd-teslabot' 
-                src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/teslabot.jpg"
+                src="src/Kanbas/Images/teslabot.jpg"
                 alt=""
                 height={'200px'} 
                 />

@@ -7,7 +7,7 @@ export default function Dashboard(){
             <h2 id = 'wd-dashboard-published'>Published Courses(12)</h2><hr />
             <div id = "wd-dashboard-courses">
                 <div className="wd-dashboard-course">
-                    <img src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Images/reactjs.webp" width={200}/>
+                    <img src="src/Kanbas/Images/reactjs.webp" width={200}/>
                     <div>
                         <Link className="wd-dashboard-course-link" to = "/Kanbas/Courses/1234/Home">CS1234React
                          </Link>
@@ -18,7 +18,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div className="wd-dashboard-course">
-                    <img src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Images/numericalanalysis.jpg" width={200}/>
+                    <img src="src/Kanbas/Images/numericalanalysis.jpg" width={200}/>
                     <div>
                         <Link className="wd-dashboard-course-link" to = "/Kanbas/Courses/7203/Home">MATH7203NumericalAnalysis</Link>
                         <p className = "wd-dashboard-course-title">
@@ -28,7 +28,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div className="wd-dashboard-course">
-                    <img src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Images/ALA.jpg"/>
+                    <img src="src/Kanbas/Images/ALA.jpg"/>
                     <div>
                         <Link className="wd-dashboard-course-link" to = "/Kanbas/Courses/5110/Home">MATH5110AppliedLinearAlgebra</Link>
                         <p className="wd-dasthboard-course-title">
@@ -38,7 +38,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div className="wd-dashboard-course">
-                    <img src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Images/gameprogramming.jpeg"/>
+                    <img src="src/Kanbas/Images/gameprogramming.jpeg"/>
                     <div>
                         <Link className="wd-dashboard-course-link" to= "/Kanbas/Courses/5540/Home">CS5540GameProgramming</Link>
                         <p className="wd-dashboard-course-title">
@@ -49,7 +49,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div className="wd-dashboard-course">
-                    <img src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Images/appliedstatistics.jpeg"/>
+                    <img src="src/Kanbas/Images/appliedstatistics.jpeg"/>
                     <div>
                         <Link className = "wd-dashboard-course-link" to = "/Kanbas/Courses/5540/Home">MATH7343AppliedStatistics</Link>
                         <p className="wd-dashboard-course-title">
@@ -59,7 +59,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div className="wd-dashboard-course">
-                    <img src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Images/machinelearning.png"/>
+                    <img src="src/Kanbas/Images/machinelearning.png"/>
                     <div>
                         <Link className="wd-dashboard-course-link" to ="/Kanbas/Courses/7243/Home">MATH7243MachineLearning</Link>
                         <p className="wd-dashboard-course-title">
@@ -69,7 +69,7 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div className="wd-dashboard-courses">
-                    <img src="/Users/shivvinnybhutani/Desktop/Web Design/kanbase-react-web-app/src/Kanbas/Images/probability1.jpeg"/>
+                    <img src="src/Kanbas/Images/probability1.jpeg"/>
                     <div>
                         <Link className="wd-dashboard-course-link" to = "/Kanbas/Courses/7241/Home">MATH7241Probability1</Link>
                         <p className="wd-dashboard-course-title">
