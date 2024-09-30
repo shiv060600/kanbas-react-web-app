@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router";
-import Lab1 from './Lab1/index.tsx'
-import Lab2 from "./Lab2/index.tsx"
-import Lab3 from "./Lab3/index.tsx" 
-import TOC from "./TOC.tsx"
-import Kanbas from "../Kanbas/index.tsx";
+import Lab1 from './Lab1/index'
+import Lab2 from "./Lab2/index"
+import Lab3 from "./Lab3/index" 
+import TOC from "./TOC"
+import Kanbas from "../Kanbas/index";
 export default function Labs(){
     return (
     <div id = "wd-labs">

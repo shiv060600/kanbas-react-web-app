@@ -1,10 +1,11 @@
 import React from "react";
 import { Navigate,Routes,Route } from "react-router-dom";
-import CoursesNavigation from "./Navigation.tsx";
-import Home from "./Home/index.tsx";
-import Modules from "./Modules/index.tsx";
-import Assignments from "./Assignments/index.tsx";
-import AssignmentEditor from "./Assignments/Editor.tsx";
+import CoursesNavigation from "./Navigation";
+import Home from "./Home/index";
+import Modules from "./Modules/index";
+import Assignments from "./Assignments/index";
+import AssignmentEditor from "./Assignments/Editor";
+import PeopleTable from "./People/Table";
 export default function Courses(){
     return(
         <div id = "wd-courses">
@@ -18,13 +19,11 @@ export default function Courses(){
                     <td valign="top">
                         <Routes>
                             <Route path="/" element={<Navigate to="Home" />} />
-                            <Route path="Home" element={<h2><Home /></h2>} />
-                            <Route path="Modules" element={<h2><Modules/></h2>} />
-                            <Route path="Assignments" element={<h2><Assignments/></h2>} />
-                            <Route path="Assignments/A1" element={<h2><AssignmentEditor/></h2>} />
-                            <Route path="Assignments/A2" element={<h2><AssignmentEditor/></h2>} />
-                            <Route path="Assignments/A3" element={<h2><AssignmentEditor/></h2>} />
-                            <Route path="People" element={<h2>People</h2>} />
+                            <Route path="Home" element={<Home />} />
+                            <Route path="Modules" element={<Modules/>} />
+                            <Route path="Assignments" element={<Assignments/>} />
+                            <Route path="Assignments/:aid" element={<AssignmentEditor/>} />
+                            <Route path="People" element={<PeopleTable/>} />
                         </Routes>
                     </td>
                 </tr>

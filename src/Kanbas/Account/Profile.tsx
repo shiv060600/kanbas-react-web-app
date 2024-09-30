@@ -4,25 +4,26 @@ export default function Profile(){
     return( 
         <div id = 'wd-profile-screen'>
             <h3>Profile</h3>
-            <input id = 'wd-username' type="text" placeholder= "username" value= 'alice' />
+            <input id = 'wd-username' type="text" className="form-control" placeholder= "username" value= 'alice' />
             <br />
-            <input id = 'wd-password' type="password" placeholder= "password" value= '123' />
+            <input id = 'wd-password' type="password" className="form-control" placeholder= "password" value= '123' />
             <br />
-            <input id = 'wd-firstanem'type="text" placeholder= "firstname" value= "Alice"/>
+            <input id = 'wd-firstanem'type="text" className="form-control" placeholder= "firstname" value= "Alice"/>
             <br />
-            <input id = 'wd-lastname' type="text" placeholder= "lastname" value = 'Wonderland'/>
+            <input id = 'wd-lastname' type="text" className="form-control" placeholder= "lastname" value = 'Wonderland'/>
             <br />
-            <input id = 'wd-dob' type="date" value= '2000-01-01' />
+            <input id = 'wd-dob' type="date" className="form-control" value= '2000-01-01' />
             <br />
-            <input id = 'wd-email' type="email" value ='alice@wonderland' />
+            <input id = 'wd-email' type="email" className="form-control" value ='alice@wonderland' />
             <br />
-            <select id="wd-role">
+            <select id="wd-role" className="form-control">
                 <option value="USER">User</option>
                 <option value="ADMIN">Admin</option>
                 <option value="FACULTY">Faculty</option>
                 <option value="STUDENT">Student</option>
-            </select><br/>
-            <Link to="/Kanbas/Account/Signin" >Sign out</Link>
+            </select>
+            <br/>
+            <Link to="/Kanbas/Account/Signin" className="btn btn-danger">Sign out</Link>
          </div>
 
     )

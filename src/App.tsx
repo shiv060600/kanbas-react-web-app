@@ -1,8 +1,8 @@
 
 import './App.css';
 import React from 'react'
-import Labs from "./Labs/index.tsx"
-import Kanbas from "./Kanbas/index.tsx"
+import Labs from "./Labs/index"
+import Kanbas from "./Kanbas/index"
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 export default function App() {
   return (
