@@ -8,7 +8,7 @@ export default function KanbasNavigation(){
     return(
         <div id = "wd-kanbas-navigation" style={{width : 110}} 
             className= "list-group rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2">
-            <a href="www.northeastern.edu" id = "wd-neu-link" target = "_blank" className= "list-group-item bg-black border-0 text-center">
+            <a href="https://northeastern.edu" id = "wd-neu-link" target = "_blank" className= "list-group-item bg-black border-0 text-center">
                 <img src="Images/NortheasternLogo.jpg" width= "75px" alt="" />
             </a>
             <Link to = "/Kanbas/Account" id = "wd-account-link" 
