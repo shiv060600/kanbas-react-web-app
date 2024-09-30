@@ -35,7 +35,7 @@ export default function PeopleTable() {
             <tr>
                 <td className="wd-full-name text-nowrap">
                     <FaUserCircle className="me-2 fs-1 text-secondary"/>
-                    <span className="wd-first-name">Steve</span>
+                    <span className="wd-first-name">Steve</span>{" "}
                     <span className="wd-last-name">Rogers</span>
                 </td>
                 <td className="wd-login-id">003234561S</td>
@@ -47,7 +47,7 @@ export default function PeopleTable() {
             <tr>
                 <td className="wd-full-name text-nowrap">
                     <FaUserCircle className="me-2 fs-1 text-secondary"/>
-                    <span className="wd-first-name">Natasha</span>
+                    <span className="wd-first-name">Natasha</span>{" "}
                     <span className="wd-last-name">Romanoff</span>
                 </td>
                 <td className="wd-login-id">004234561S</td>
