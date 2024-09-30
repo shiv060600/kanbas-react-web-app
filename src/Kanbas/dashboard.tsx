@@ -62,7 +62,7 @@ export default function Dashboard(){
                         <div className="card rounded-3 overflow-hidden">
                             <Link className="wd-dashboard-course-link" 
                                 to= "/Kanbas/Courses/5540/Home">
-                                <img src="src/Kanbas/Images/gameprogramming.jpeg" width="100%" height={160}/>
+                                <img src="Images/gameprogramming.jpeg" width="100%" height={160}/>
                                 <div className="card-body">
                                     <h5 className="wd-dashboard-course-title card-title">
                                         CS5540GameProgramming
