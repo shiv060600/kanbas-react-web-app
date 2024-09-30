@@ -11,7 +11,7 @@ export default function Dashboard(){
                         <div className="card rounded-3 overflow-hidden">
                             <Link className="wd-dashboard-course-link text-decoration-none text-dark" 
                                     to = "/Kanbas/Courses/1234/Home">
-                                <img src="src/Kanbas/Images/reactjs.webp" width="100%" height={160}/>
+                                <img src="/Images/reactjs.webp" width="100%" height={160}/>
                                 <div className="card-body">
                                     <h5 className="wd-dashboard-course-title card-title">
                                         CS1234 React JS
@@ -28,7 +28,7 @@ export default function Dashboard(){
                         <div className="card rounded-3 overflow-hidden">
                             <Link className="wd-dashboard-course-link text-decoration-none text-dark"
                                 to = "/Kanbas/Courses/7203/Home">
-                                <img src="src/Kanbas/Images/numericalanalysis.jpg" width="100%" height={160}/>
+                                <img src="Images/numericalanalysis.jpg" width="100%" height={160}/>
                                 <div className="card-body">
                                     <h5 className="wd-dashboard-course-title card-title">
                                         MATH7203NumericalAnalysis
@@ -45,7 +45,7 @@ export default function Dashboard(){
                         <div className="card rounded-3 overflow-hidden">
                             <Link className="wd-dashboard-course-link" 
                                 to = "/Kanbas/Courses/5110/Home">
-                                <img src="src/Kanbas/Images/ALA.jpg" width="100%" height={160}/>
+                                <img src="Images/ALA.jpg" width="100%" height={160}/>
                                 <div className="card-body">
                                     <h5 className="wd-dashboard-course-title card-title">
                                         MATH5110AppliedLinearAlgebra
@@ -79,7 +79,7 @@ export default function Dashboard(){
                         <div className="card rounded-3 overflow hidden">
                             <Link className="wd-dashboard-course-list" 
                                 to="/Kanbas/Courses/7343/Home">
-                                <img src="src/Kanbas/Images/appliedstatistics.jpeg" width="100%" height={160}/>
+                                <img src="Images/appliedstatistics.jpeg" width="100%" height={160}/>
                                 <div className="card-body">
                                     <h5 className="wd-dashboard-course-title card-title">
                                         MATH7343AppliedStatistics
@@ -96,7 +96,7 @@ export default function Dashboard(){
                         <div className="card rounded-3 overflow hidden">
                             <Link className="wd-dashboard-course-link" 
                                 to ="/Kanbas/Courses/7243/Home">
-                                <img src="src/Kanbas/Images/machinelearning.png" width="100%" height={160}/>
+                                <img src="Images/machinelearning.png" width="100%" height={160}/>
                                 <div className="card-body">
                                     <h5 className="wd-dashboard-course-title card-title">
                                         MATH7243MachineLearning
@@ -113,7 +113,7 @@ export default function Dashboard(){
                         <div className="card rounded-3 overflow hidden">
                             <Link className="wd-dashboard-course-link" 
                                 to ="/Kanbas/Courses/7243/Home">
-                                <img src="src/Kanbas/Images/machinelearning.png" width="100%" height={160}/>
+                                <img src="Images/probability1.jpeg" width="100%" height={160}/>
                                 <div className="card-body">
                                     <h5 className="wd-dashboard-course-title card-title">
                                         MATH7241Probability
