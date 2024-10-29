@@ -6,9 +6,9 @@ import Modules from "./Modules/index";
 import Assignments from "./Assignments/index";
 import AssignmentEditor from "./Assignments/Editor";
 import PeopleTable from "./People/Table";
-import { courses } from "../Database";
+//import { courses } from "../Database";
 import { FaAlignJustify } from "react-icons/fa";
-export default function Courses(){
+export default function Courses({ courses }: { courses: any[]; }){
     const { cid } = useParams();
     const { pathname } = useLocation();
     const course = courses.find((course) => course._id === cid)

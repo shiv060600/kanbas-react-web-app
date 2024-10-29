@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiPlus } from "react-icons/bi";
 import { BsGripVertical } from "react-icons/bs";
 import { LessonControlButtons, ModuleControlButtons } from "../Modules/LessonControlButtons";
 import { useParams } from "react-router";
 import { assignments } from "../../Database"
-
+import { AssignmentControlButtons } from "./AssignmentControlButtons";
+import { useSelector, useDispatch } from "react-redux";
+import { addAssignment, deleteAssignment , updateAssignment, editAssignement } from "./reducer";
 import { BiSearch } from "react-icons/bi";
 import { FaPencilAlt } from "react-icons/fa";
+import { deleteModule } from "../Modules/Reducer";
 export default function Assignments() {
   const { cid } = useParams();
-
+  const [assignmentName , setassignmentName] = useState("")
+  const {assignment} = useSelector((state:any) => state.assignmentsReducer);
+  const dispatch = useDispatch();
     return (
       <div id="wd-assignments">
         <div className="d-flex">
@@ -31,7 +36,9 @@ export default function Assignments() {
             <div className="wd-title p-3 ps-2 bg-secondary">
                 <BsGripVertical className = "me-2 fs-3" />
                 ASSIGNMENTS
-                <ModuleControlButtons/>
+                <AssignmentControlButtons 
+                  addAssignment= {() => dispatch(addAssignment({title : assignmentName , course : cid}))}
+                   />
               </div>
             <ul className="wd-lessons list-group rounded-0">
             {assignments.

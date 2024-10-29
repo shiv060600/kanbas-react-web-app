@@ -1,6 +1,7 @@
 import { Link, useParams,useLocation } from "react-router-dom";
 import React from "react";
 import {courses} from "../Database";
+
 export default function CoursesNavigation(){
     const { cid } = useParams();  // Dynamically get the course ID from the URL
     const location = useLocation();  // Get the current path
