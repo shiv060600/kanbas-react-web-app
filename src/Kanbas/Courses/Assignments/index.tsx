@@ -4,7 +4,7 @@ import { BsGripVertical } from "react-icons/bs";
 import { LessonControlButtons } from "../Modules/LessonControlButtons";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { addAssignment,deleteAssignment,updateAssignment,editAssignment } from "./reducer";
+import { addAssignment,deleteAssignment,updateAssignment, editAssignment } from "./reducer";
 import AddAssignmentEditor from "./AddAssignmentEditor";
 
 export default function Assignments() {
