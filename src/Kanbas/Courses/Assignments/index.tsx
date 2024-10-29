@@ -4,16 +4,16 @@ import { BsGripVertical } from "react-icons/bs";
 import { LessonControlButtons, ModuleControlButtons } from "../Modules/LessonControlButtons";
 import { useParams } from "react-router";
 import { assignments } from "../../Database"
-import { AssignmentControlButtons } from "./AssignmentControlButtons";
 import { useSelector, useDispatch } from "react-redux";
 import { addAssignment, deleteAssignment , updateAssignment, editAssignement } from "./reducer";
 import { BiSearch } from "react-icons/bi";
 import { FaPencilAlt } from "react-icons/fa";
 import { deleteModule } from "../Modules/Reducer";
+import AddAssignmentEditor from "./AddAssignmentEditor";
 export default function Assignments() {
   const { cid } = useParams();
-  const [assignmentName , setassignmentName] = useState("")
-  const {assignment} = useSelector((state:any) => state.assignmentsReducer);
+  const [assignmentName , setAssignmentName] = useState("")
+  const {assignment} = useSelector((state:any) => state.assignmentReducer);
   const dispatch = useDispatch();
     return (
       <div id="wd-assignments">
@@ -24,9 +24,22 @@ export default function Assignments() {
           <button id="wd-add-assignment-group" className="btn btn-secondary me-2">
               <BiPlus/>Group
           </button>
-          <button id="wd-add-assignment" className= "btn btn-danger" >
-             <BiPlus/>Assignment
-          </button>
+          <button 
+            id="wd-add-assignment" 
+            className="btn btn-danger" 
+            data-bs-toggle="modal" 
+            data-bs-target="#wd-add-assignment-dialog">
+            <BiPlus /> Assignment
+            </button>
+
+          <AddAssignmentEditor 
+            dialogTitle="Add Assignment" 
+            assignmentName={assignmentName}
+            setAssignmentName={setAssignmentName} 
+             addAssignment={() => {
+              dispatch(addAssignment({ name: assignmentName, course: cid }));
+              setAssignmentName("");
+            }}/>
         </div>
 
         <br />
@@ -36,9 +49,6 @@ export default function Assignments() {
             <div className="wd-title p-3 ps-2 bg-secondary">
                 <BsGripVertical className = "me-2 fs-3" />
                 ASSIGNMENTS
-                <AssignmentControlButtons 
-                  addAssignment= {() => dispatch(addAssignment({title : assignmentName , course : cid}))}
-                   />
               </div>
             <ul className="wd-lessons list-group rounded-0">
             {assignments.
