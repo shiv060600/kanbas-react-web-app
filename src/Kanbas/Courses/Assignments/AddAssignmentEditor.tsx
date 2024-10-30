@@ -1,4 +1,4 @@
-import { addAssignment } from "./reducer";
+import React from "react";
 
 export default function AddAssignmentEditor({
   dialogTitle,
@@ -6,17 +6,15 @@ export default function AddAssignmentEditor({
   setAssignmentName,
   addAssignment,
 }: {
-    dialogTitle: string;
-    assignmentName: string;
-    setAssignmentName: (name: string) => void;
-    addAssignment: () => void;
+  dialogTitle: string;
+  assignmentName: string;
+  setAssignmentName: (name: string) => void;
+  addAssignment: () => void;
 }) {
   return (
     <div
       id="wd-add-assignment-dialog"
       className="modal fade"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
       tabIndex={-1}
       aria-labelledby="assignmentDialogLabel"
       aria-hidden="true"
@@ -48,7 +46,6 @@ export default function AddAssignmentEditor({
                   onChange={(e) => setAssignmentName(e.target.value)}
                 />
               </div>
-
               <div className="col-12 mb-3">
                 <label htmlFor="assignmentDescription" className="form-label">
                   Assignment Description
@@ -60,8 +57,7 @@ export default function AddAssignmentEditor({
                   rows={5}
                 />
               </div>
-
-              <div className="col-6 offset-6 mb-3">
+              <div className="col-8 offset-4 mb-3">
                 <div className="row align-items-center">
                   <label htmlFor="points" className="col-3 col-form-label">
                     Points
@@ -77,61 +73,49 @@ export default function AddAssignmentEditor({
                   </div>
                 </div>
               </div>
-
-              <div className="col-8 offset-6 mb-3">
-                <div className="row">
-                  <label className="col-4">Assign</label>
-                  <div className="col-9">
+              <div className="col-6 offset-6 mb-3">
+                <div className="row align-items-center">
+                    Assign
                     <div className="border p-3 rounded">
-                      <div className="row mb-2">
-                        <div className="col-4">
-                          <label htmlFor="dueDate" className="form-label">
+                        <div className="row mb-2">
+                            <label htmlFor="dueDate" className="form-label col-4">
                             Due
-                          </label>
-                        </div>
-                        <div className="col-8">
-                          <input
+                            </label>
+                            <input
                             id="dueDate"
                             type="date"
-                            className="form-control"
-                          />
+                            className="form-control col-8"
+                            />
                         </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-4">
-                          <label htmlFor="availableFrom" className="form-label">
+                        <div className="row mb-2">
+                            <label
+                            htmlFor="availableFrom"
+                            className="form-label col-4"
+                            >
                             Available from
-                          </label>
-                        </div>
-                        <div className="col-8">
-                          <input
+                            </label>
+                            <input
                             id="availableFrom"
                             type="date"
-                            className="form-control"
-                          />
+                            className="form-control col-8"
+                            />
                         </div>
-                      </div>
-                      <div className="row mt-2">
-                        <div className="col-4">
-                          <label htmlFor="until" className="form-label">
+                        <div className="row">
+                            <label htmlFor="until" className="form-label col-4">
                             Until
-                          </label>
-                        </div>
-                        <div className="col-8">
-                          <input
+                            </label>
+                            <input
                             id="until"
                             type="date"
-                            className="form-control"
-                          />
+                            className="form-control col-8"
+                            />
                         </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
+                
               </div>
             </div>
           </div>
-
           <div className="modal-footer">
             <button
               type="button"

@@ -6,13 +6,12 @@ import { useParams } from "react-router";
 import { modules }  from "../../Database";
 import { courses } from "../../Database";
 import * as db from "../../Database";
-import { addModule, editModule, updateModule, deleteModule }
-  from "./Reducer";
 import { useSelector, useDispatch } from "react-redux";
+import { addModule, editModule, updateModule, deleteModule } from "./Reducer"
 
 
 export default function Modules() {
-  const { cid } = useParams();
+  const { cid } = useParams();  
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: any) => state.modulesReducer);
   const dispatch = useDispatch();
