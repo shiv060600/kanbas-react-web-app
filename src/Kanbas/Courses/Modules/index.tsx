@@ -44,10 +44,10 @@ export default function Modules() {
                defaultValue={module.name}/>
               )}
               <ModuleControlButtons moduleId={module._id}
-                  deleteModule={(moduleId) => {
+                  deleteModule={(moduleId:any) => {
                     dispatch(deleteModule(moduleId));
                   }}
-                  editModule={(moduleId) => dispatch(editModule(moduleId))} />
+                  editModule={(moduleId:any) => dispatch(editModule(moduleId))} />
             </div>
             {module.lessons && (
               <ul className="wd-lessons list-group rounded-0">

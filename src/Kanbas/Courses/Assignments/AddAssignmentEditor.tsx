@@ -1,15 +1,22 @@
 import React from "react";
+import { editAssignment } from "./reducer";
 
 export default function AddAssignmentEditor({
   dialogTitle,
   assignmentName,
   setAssignmentName,
   addAssignment,
+  setAvailableUntil,
+  setAvailableFrom,
+  setDueDate,
 }: {
   dialogTitle: string;
   assignmentName: string;
   setAssignmentName: (name: string) => void;
   addAssignment: () => void;
+  setAvailableUntil : (date : string) => void;
+  setAvailableFrom : (date:string) => void;
+  setDueDate : (date:string) => void;
 }) {
   return (
     <div
@@ -85,6 +92,7 @@ export default function AddAssignmentEditor({
                             id="dueDate"
                             type="date"
                             className="form-control col-8"
+                            onChange={(e) => setDueDate(e.target.value)}
                             />
                         </div>
                         <div className="row mb-2">
@@ -98,6 +106,7 @@ export default function AddAssignmentEditor({
                             id="availableFrom"
                             type="date"
                             className="form-control col-8"
+                            onChange={(e) => setAvailableFrom(e.target.value)}
                             />
                         </div>
                         <div className="row">
@@ -108,6 +117,7 @@ export default function AddAssignmentEditor({
                             id="until"
                             type="date"
                             className="form-control col-8"
+                            onChange={(e) => setAvailableUntil(e.target.value)}
                             />
                         </div>
                     </div>

@@ -1,8 +1,9 @@
 import { BiPlus } from "react-icons/bi";
 import AddAssignmentEditor from "./AddAssignmentEditor";
 export default function AssignmentControls(
-    { assignmentName, setAssignmentName, addAssignment }:
-    { assignmentName: string; setAssignmentName: (title: string) => void; addAssignment: () => void; }){
+    { assignmentName, setAssignmentName, addAssignment , setAvailableFrom, setAvailableUntil , setDueDate}:
+    { assignmentName: string; setAssignmentName: (title: string) => void; addAssignment: () => void; 
+        setAvailableFrom : (date : string) => void; setAvailableUntil : (date:string) => void, setDueDate:(date:string) => void;}){
     return(
         <div className="d-flex">
             <input
@@ -26,6 +27,10 @@ export default function AssignmentControls(
             assignmentName={assignmentName}
             setAssignmentName={setAssignmentName}
             addAssignment={addAssignment}
+            setAvailableFrom={setAvailableFrom}
+            setAvailableUntil={setAvailableUntil}
+            setDueDate={setDueDate}
+
             />
       </div>
     );

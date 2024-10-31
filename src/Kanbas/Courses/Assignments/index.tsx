@@ -13,14 +13,15 @@ import {
 import AssignmentControls from "./AssignmentControls";
 import AssignmentEditor from "./AssignmentEditor";
 
+
 export default function Assignments() {
   const { cid } = useParams();
-  const [assignmentName, setAssignmentName] = useState("");
-  const [description, setDescription] = useState("");
+  const [assignmentName, setAssignmentName] = useState("New Assignment");
+  const [description, setDescription] = useState("New Description");
   const [points, setPoints] = useState(100);
-  const [dueDate, setDueDate] = useState("");
-  const [availableFrom, setAvailableFrom] = useState("");
-  const [availableUntil, setAvailableUntil] = useState("");
+  const [dueDate, setDueDate] = useState("12/12/2024");
+  const [availableFrom, setAvailableFrom] = useState("12/12/2024");
+  const [availableUntil, setAvailableUntil] = useState("12/12/2024");
   
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const dispatch = useDispatch();
@@ -38,17 +39,14 @@ export default function Assignments() {
     dispatch(updateAssignment({
       id: assignmentId,
       title: assignmentName,
-      description,
-      points,
-      dueDate,
-      availableFrom,
-      availableUntil
+      description: description,
+      points : points,
+      dueDate: dueDate,
+      availableFrom:availableFrom,
+      availableUntil:availableUntil
     }));
     
   };
-
-  
-
   return (
     <div id="wd-assignments">
       <div id="wd-assignmentcontrols">
@@ -56,8 +54,14 @@ export default function Assignments() {
           assignmentName={assignmentName}
           setAssignmentName={setAssignmentName}
           addAssignment={() => {
-            dispatch(addAssignment({ name: assignmentName, course: cid }));
+            console.log({dueDate})
+            dispatch(addAssignment({ name: assignmentName, course: cid , description : description , dueDate : dueDate , 
+              availableFrom : availableFrom , availableUntil :availableUntil, points : points
+            }));
           }}
+          setDueDate={setDueDate}
+          setAvailableFrom={setAvailableFrom}
+          setAvailableUntil={setAvailableUntil}
         />
       </div>
       <br />
@@ -84,14 +88,16 @@ export default function Assignments() {
                 />
               </span>
               <br />
-              <small> Available From : {assignment.availableFrom} </small>
-              <small> Available Until : {assignment.availableUntil} </small>
-              <small> Due : {assignment.dueDate} </small>
+              <small> Available From : {assignment.availableFrom} | </small>
+              <small> Available Until : {assignment.availableUntil} | </small>
+              <small> Due : {assignment.dueDate} | </small>
+              <small> Points : {assignment.points} | </small>
               <AssignmentEditor
                 dialogTitle="Edit Assignment"
+                assignment={assignment}
                 assignmentName={assignmentName}
                 setAssignmentName={setAssignmentName}
-                editAssignment={() => saveAssignment(assignment._id)}
+                updateAssignment={(assignment :any) => dispatch(updateAssignment(assignment))}
                 description={description}
                 setDescription={setDescription}
                 points={points}

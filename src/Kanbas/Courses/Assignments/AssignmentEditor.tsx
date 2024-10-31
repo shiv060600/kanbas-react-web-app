@@ -1,11 +1,15 @@
 import React from "react";
 import { useParams } from "react-router";
+import { useState } from "react";
+import { useDispatch, UseDispatch } from "react-redux";
+import { updateAssignment } from "./reducer";
 
 interface AssignmentEditorProps {
   dialogTitle: string;
+  assignment : any
   assignmentName: string;
   setAssignmentName: (name: string) => void;
-  editAssignment: () => void;
+  updateAssignment: (assignment:any) => void;
   description: string;
   setDescription: (desc: string) => void;
   points: number;
@@ -20,9 +24,10 @@ interface AssignmentEditorProps {
 
 export default function AssignmentEditor({
   dialogTitle,
+  assignment,
   assignmentName,
   setAssignmentName,
-  editAssignment,
+  updateAssignment,
   description,
   setDescription,
   points,
@@ -34,8 +39,8 @@ export default function AssignmentEditor({
   availableUntil,
   setAvailableUntil,
 }: AssignmentEditorProps) {
-  const { cid } = useParams();
 
+  const { aid } = useParams();
   return (
     <div id="wd-edit-assignment-dialog" className="modal" tabIndex={-1}>
       <div className="modal-dialog modal-lg">
@@ -131,9 +136,10 @@ export default function AssignmentEditor({
               Cancel
             </button>
             <button
-              onClick={editAssignment}
+              onClick={() => updateAssignment(assignment)}
               type="button"
-              className="btn btn-danger">
+              className="btn btn-danger"
+              data-bs-dismiss="modal">
               Save
             </button>
           </div>
