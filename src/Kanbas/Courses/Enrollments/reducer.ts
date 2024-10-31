@@ -12,7 +12,6 @@ const initialState = {
 const enrollmentsSlice = createSlice({
     name: "enrollments",
     initialState,
-  
     reducers: {
       toggleEnrollment: (state, { payload: { userId, courseId } }) => {
         const enrollmentIndex = state.enrollments.findIndex(

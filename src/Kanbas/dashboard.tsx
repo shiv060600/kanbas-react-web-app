@@ -19,8 +19,7 @@ export default function Dashboard(
     const isStudent = currentUser && currentUser.role === "Student";
     const isEnrolled = (course:any) => {
         return (enrollments || []).some((en:any) => en.user === currentUser._id && en.course === course._id);
-      };
-    
+    };
     return(
         
         <div id = "wd-dashboard">
@@ -69,8 +68,7 @@ export default function Dashboard(
                                         <button
                                             className={`btn ${isEnrolled(course) ? "btn-danger" : "btn-success"}`}
                                             onClick={() =>
-                                            dispatch(toggleEnrollment({ userId: currentUser._id, course: course._id }))
-                                            }>
+                                            dispatch(toggleEnrollment({ userId: currentUser._id, course: course._id }))}>
                                             {isEnrolled(course) ? "Unenroll" : "Enroll"}
                                         </button>
                                     )}
