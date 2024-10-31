@@ -33,7 +33,7 @@ export default function Dashboard(
                 <div className="row row-cols-1 row-cols-md-5 g-4" >
                     {courses.filter((course) => enrollments.some((enrollment) =>
                             enrollment.user === currentUser._id &&
-                            enrollment.course === course._id
+                            enrollment.course === course._id 
                            )).map((course) => (
                     <div className= "wd-dashboard-course-col" style={{width:"300px"}}>
                         <div className="card rounded-3 overflow-hidden">
