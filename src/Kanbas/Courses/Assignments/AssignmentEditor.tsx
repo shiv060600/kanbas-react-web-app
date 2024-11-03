@@ -6,10 +6,11 @@ import { updateAssignment } from "./reducer";
 
 interface AssignmentEditorProps {
   dialogTitle: string;
-  assignment : any
+  assignment : any;
+  _id :any;
   assignmentName: string;
   setAssignmentName: (name: string) => void;
-  updateAssignment: (assignment:any) => void;
+  //updateAssignment: (assignment:any) => void;
   description: string;
   setDescription: (desc: string) => void;
   points: number;
@@ -25,9 +26,10 @@ interface AssignmentEditorProps {
 export default function AssignmentEditor({
   dialogTitle,
   assignment,
+  _id,
   assignmentName,
   setAssignmentName,
-  updateAssignment,
+  //updateAssignment,
   description,
   setDescription,
   points,
@@ -39,7 +41,10 @@ export default function AssignmentEditor({
   availableUntil,
   setAvailableUntil,
 }: AssignmentEditorProps) {
-
+  console.log(assignment)
+  console.log(_id)
+  const [assignmentEdit,setAssignmentEdit] = useState(assignment)
+  const dispatch = useDispatch();
   const { aid } = useParams();
   return (
     <div id="wd-edit-assignment-dialog" className="modal" tabIndex={-1}>
@@ -62,8 +67,8 @@ export default function AssignmentEditor({
               <input
                 id="assignmentName"
                 className="form-control"
-                value={assignmentName}
-                onChange={(e) => setAssignmentName(e.target.value)}
+                value={assignmentEdit.title}
+                onChange={(e) => setAssignmentEdit({...assignment, title: e.target.value })}
               />
             </div>
             <div className="mb-3">
@@ -74,8 +79,8 @@ export default function AssignmentEditor({
                 id="description"
                 className="form-control"
                 rows={3}
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                value={assignmentEdit.description}
+                onChange={(e) => setAssignmentEdit({...assignment, description: e.target.value })}
               />
             </div>
             <div className="mb-3">
@@ -86,8 +91,8 @@ export default function AssignmentEditor({
                 id="points"
                 type="number"
                 className="form-control"
-                value={points}
-                onChange={(e) => setPoints(Number(e.target.value))}
+                value={assignmentEdit.points}
+                onChange={(e) => setAssignmentEdit({...assignment, points: e.target.value })}
               />
             </div>
             <div className="mb-3">
@@ -98,8 +103,8 @@ export default function AssignmentEditor({
                 id="dueDate"
                 type="date"
                 className="form-control"
-                value={dueDate}
-                onChange={(e) => setDueDate(e.target.value)}
+                value={assignmentEdit.dueDate}
+                onChange={(e) => setAssignmentEdit({...assignment, dueDate: e.target.value })}
               />
             </div>
             <div className="mb-3">
@@ -110,8 +115,8 @@ export default function AssignmentEditor({
                 id="availableFrom"
                 type="date"
                 className="form-control"
-                value={availableFrom}
-                onChange={(e) => setAvailableFrom(e.target.value)}
+                value={assignmentEdit.availableFrom}
+                onChange={(e) => setAssignmentEdit({...assignment, availableFrom: e.target.value })}
               />
             </div>
             <div className="mb-3">
@@ -122,8 +127,8 @@ export default function AssignmentEditor({
                 id="availableUntil"
                 type="date"
                 className="form-control"
-                value={availableUntil}
-                onChange={(e) => setAvailableUntil(e.target.value)}
+                value={assignmentEdit.availableUntil}
+                onChange={(e) => setAssignmentEdit({...assignment, availableUntil: e.target.value })}
               />
             </div>
           </div>
@@ -136,7 +141,7 @@ export default function AssignmentEditor({
               Cancel
             </button>
             <button
-              onClick={() => updateAssignment(assignment)}
+              onClick={() => dispatch(updateAssignment(assignmentEdit))}
               type="button"
               className="btn btn-danger"
               data-bs-dismiss="modal">

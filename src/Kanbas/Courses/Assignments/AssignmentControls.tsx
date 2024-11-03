@@ -30,7 +30,6 @@ export default function AssignmentControls(
             setAvailableFrom={setAvailableFrom}
             setAvailableUntil={setAvailableUntil}
             setDueDate={setDueDate}
-
             />
       </div>
     );

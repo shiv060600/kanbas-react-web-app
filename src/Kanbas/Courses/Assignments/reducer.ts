@@ -31,6 +31,8 @@ const assignmentsSlice = createSlice({
     },
 
     updateAssignment: (state, { payload: assignment}) => {
+        console.log("reducer")
+        console.log(assignment)
         state.assignments = state.assignments.map((m: any) =>
           m._id === assignment._id ? assignment : m
         ) as any;

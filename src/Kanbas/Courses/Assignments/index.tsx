@@ -95,9 +95,10 @@ export default function Assignments() {
               <AssignmentEditor
                 dialogTitle="Edit Assignment"
                 assignment={assignment}
+                _id = {assignment._id}
                 assignmentName={assignmentName}
                 setAssignmentName={setAssignmentName}
-                updateAssignment={(assignment :any) => dispatch(updateAssignment(assignment))}
+                //updateAssignment={(assignment :any) => dispatch(updateAssignment(assignment))}
                 description={description}
                 setDescription={setDescription}
                 points={points}
@@ -107,8 +108,8 @@ export default function Assignments() {
                 availableFrom={availableFrom}
                 setAvailableFrom={setAvailableFrom}
                 availableUntil={availableUntil}
-                setAvailableUntil={setAvailableUntil}
-              />
+                setAvailableUntil={setAvailableUntil} 
+                />
             </li>
           ))}
       </ul>
