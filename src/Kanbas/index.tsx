@@ -4,26 +4,48 @@ import Account from "./Account/index"
 import Dashboard from "./dashboard"
 import KanbasNavigation from "./Nagivation";
 import Courses from "./Courses/index";
-import * as db from "./Database" 
+import * as db from "./Database"
 import "./styles.css";
-import store from "./store";
 import { Provider } from "react-redux";
 import ProtectedRoute from "./Account/ProtectedRoute";
+import Session from "./Account/session";
+import * as userClient from "./Account/client";
+import { useSelector } from "react-redux";
+import store from "./store";
+import { useEffect } from "react";
+import * as courseClient from "./Courses/client";
 export default function Kanbas() {
-  const [courses , setCourses] = useState<any[]>(db.courses);
+  const [courses , setCourses] = useState<any[]>([]);
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const fetchCourses = async () => {
+    try {
+      const courses = await userClient.findMyCourses();
+      setCourses(courses);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchCourses();
+  }, [currentUser]);
+
   const [course, setCourse] = useState<any>({
         _id: "1234", name: "New Course", number: "New Number",
         startDate: "2023-09-10", endDate: "2023-12-15",
         description: "New Description"
       });
-  const addNewCourse = () => {
-        const newCourse = {...course, _id: new Date().getTime().toString() };  
-        setCourses([...courses, { ...course, ...newCourse }]);
-    }
-  const deleteCourse = (courseId: any) => {
+  const addNewCourse = async () => {
+        console.log("Sending course data:", course);
+        const newCourse = await userClient.createCourse(course);
+        setCourses([ ...courses, newCourse ]);
+      };
+    
+  const deleteCourse = async (courseId: string) => {
+        const status = await courseClient.deleteCourse(courseId);
         setCourses(courses.filter((course) => course._id !== courseId));
     };
-  const updateCourse = () => {
+  const updateCourse = async() => {
+      await courseClient.updateCourse(course);
         setCourses(
           courses.map((c) => { 
             if (c._id === course._id) {
@@ -36,6 +58,7 @@ export default function Kanbas() {
     };
   return (
     <Provider store = {store}>
+      <Session>
         <div id="wd-kanbas">
             <KanbasNavigation />
             <div className= "wd-main-content-offset p-3">
@@ -58,6 +81,7 @@ export default function Kanbas() {
               </Routes>
             </div>
         </div>
+    </Session>
     </Provider>
   );}
   

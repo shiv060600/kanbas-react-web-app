@@ -3,7 +3,7 @@ import { assignments } from "../../Database";
 
 // Initial state with assignments data imported from Database
 const initialState = {
-  assignments: assignments
+  assignments: []
 };
 
 // Create a slice for assignments with reducers for adding, deleting, updating, and editing assignments
@@ -12,6 +12,9 @@ const assignmentsSlice = createSlice({
   initialState,
   
   reducers: {
+    setAssignments: (state, action) => {
+      state.assignments = action.payload;
+    },
     addAssignment: (state, { payload: assignment }) => {
       const newAssignment = {
         _id: new Date().getTime().toString(),
@@ -23,11 +26,11 @@ const assignmentsSlice = createSlice({
         availableFrom: assignment.availableFrom ,//|| "12/12/2024",
         availableUntil: assignment.availableUntil ,//|| "12/12/2024"
       };
-      state.assignments = [...state.assignments, newAssignment];
+      state.assignments = [...state.assignments, newAssignment] as any;
     },
 
     deleteAssignment: (state, { payload: assignmentId }) => {
-      state.assignments = state.assignments.filter((a) => a._id !== assignmentId);
+      state.assignments = state.assignments.filter((a:any) => a._id !== assignmentId);
     },
 
     updateAssignment: (state, { payload: assignment}) => {
@@ -46,5 +49,5 @@ const assignmentsSlice = createSlice({
   }
 });
 
-export const { addAssignment, deleteAssignment, updateAssignment, editAssignment } = assignmentsSlice.actions;
+export const { addAssignment, deleteAssignment, updateAssignment, editAssignment ,setAssignments} = assignmentsSlice.actions;
 export default assignmentsSlice.reducer;

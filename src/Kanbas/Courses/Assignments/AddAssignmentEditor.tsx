@@ -1,5 +1,7 @@
 import React from "react";
-
+import * as assignmentsClient from "./client"
+import {updateAssignment,setAssignments,addAssignment}from "./reducer"
+import { useDispatch } from "react-redux";
 
 export default function AddAssignmentEditor({
   dialogTitle,
@@ -18,6 +20,11 @@ export default function AddAssignmentEditor({
   setAvailableFrom : (date:string) => void;
   setDueDate : (date:string) => void;
 }) {
+  const dispatch = useDispatch();
+  const saveAssignment = async (assignment: any) => {
+    await assignmentsClient.updateAssignment(module);
+    dispatch(updateAssignment(module));
+  };
   return (
     <div
       id="wd-add-assignment-dialog"
@@ -135,7 +142,7 @@ export default function AddAssignmentEditor({
               Cancel
             </button>
             <button
-              onClick={addAssignment}
+              onClick={saveAssignment}
               type="button"
               data-bs-dismiss="modal"
               className="btn btn-danger"

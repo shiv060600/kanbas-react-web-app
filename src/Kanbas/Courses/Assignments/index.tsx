@@ -5,6 +5,7 @@ import { RiDeleteBin6Line } from "react-icons/ri"; // Icon for delete
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import {
+  setAssignments,
   addAssignment,
   deleteAssignment,
   updateAssignment,
@@ -12,6 +13,8 @@ import {
 } from "./reducer";
 import AssignmentControls from "./AssignmentControls";
 import AssignmentEditor from "./AssignmentEditor";
+import * as assignmentsClient from "./client"
+import { useEffect } from "react";
 
 
 export default function Assignments() {
@@ -26,6 +29,27 @@ export default function Assignments() {
   const { assignments } = useSelector((state: any) => state.assignmentsReducer);
   const dispatch = useDispatch();
 
+  const createAssignmentForCourse = async () => {
+    if (!cid) return;
+    const newAssignment = { name: assignmentName, course: cid };
+    const assignment = await assignmentsClient.createAssignmentForCourse(cid, newAssignment);
+    dispatch(addAssignment(assignment));
+  };
+  const removeAssignment = async (assignmentId: string) => {
+    await assignmentsClient.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId));
+  };
+
+  
+
+  const fetchModules = async () => {
+    const modules = await assignmentsClient.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(modules));
+  };
+  useEffect(() => {
+    fetchModules();
+  }, []);
+
   const handleEditAssignment = (assignment: any) => {
     setAssignmentName(assignment.title);
     setDescription(assignment.description);
@@ -34,7 +58,7 @@ export default function Assignments() {
     setAvailableFrom(assignment.availableFrom);
     setAvailableUntil(assignment.availableUntil);
   };
-
+ 
   const saveAssignment = (assignmentId: string) => {
     dispatch(updateAssignment({
       id: assignmentId,
@@ -46,6 +70,7 @@ export default function Assignments() {
       availableUntil:availableUntil
     }));
     
+    
   };
   return (
     <div id="wd-assignments">
@@ -53,12 +78,7 @@ export default function Assignments() {
         <AssignmentControls
           assignmentName={assignmentName}
           setAssignmentName={setAssignmentName}
-          addAssignment={() => {
-            console.log({dueDate})
-            dispatch(addAssignment({ name: assignmentName, course: cid , description : description , dueDate : dueDate , 
-              availableFrom : availableFrom , availableUntil :availableUntil, points : points
-            }));
-          }}
+          addAssignment={createAssignmentForCourse}
           setDueDate={setDueDate}
           setAvailableFrom={setAvailableFrom}
           setAvailableUntil={setAvailableUntil}
