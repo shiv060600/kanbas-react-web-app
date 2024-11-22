@@ -84,6 +84,3 @@ export default function Kanbas() {
     </Session>
     </Provider>
   );}
-  
-/*
-sadasdasd*/

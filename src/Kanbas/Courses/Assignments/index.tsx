@@ -31,7 +31,7 @@ export default function Assignments() {
 
   const createAssignmentForCourse = async () => {
     if (!cid) return;
-    const newAssignment = { name: assignmentName, course: cid };
+    const newAssignment = { name: assignmentName, course: cid , description : description , points : points, dueDate :dueDate, availableFrom : availableFrom, availableUntil: availableUntil };
     const assignment = await assignmentsClient.createAssignmentForCourse(cid, newAssignment);
     dispatch(addAssignment(assignment));
   };

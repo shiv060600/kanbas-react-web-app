@@ -142,7 +142,7 @@ export default function AddAssignmentEditor({
               Cancel
             </button>
             <button
-              onClick={saveAssignment}
+              onClick={addAssignment}
               type="button"
               data-bs-dismiss="modal"
               className="btn btn-danger"
