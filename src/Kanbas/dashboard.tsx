@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleEnrollment } from "./Courses/Enrollments/reducer";
 
+
 export default function Dashboard({
   courses,
   course,
@@ -10,6 +11,9 @@ export default function Dashboard({
   addNewCourse,
   deleteCourse,
   updateCourse,
+  enrolling,
+  setEnrolling,
+  updateEnrollment
 }: {
   courses: any[];
   course: any;
@@ -17,11 +21,16 @@ export default function Dashboard({
   addNewCourse: () => void;
   deleteCourse: (course: any) => void;
   updateCourse: (course:any) => void;
+  enrolling:boolean;
+  setEnrolling: (enrolling: boolean) => void;
+  updateEnrollment: (courseId: string, enrolled: boolean) => void;
 }) {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
   const dispatch = useDispatch();
   const [showAllCourses, setShowAllCourses] = useState(false);
+  console.log(courses);
+  
 
   const isStudent = currentUser && currentUser.role === "STUDENT";
   const isEnrolled = (course: any) => {
@@ -33,25 +42,22 @@ export default function Dashboard({
   const handleEnrollmentToggle = (courseId: string) => {
     dispatch(toggleEnrollment({ userId: currentUser._id, courseId }));
   };
-
+  /*
   const filteredCourses = isStudent && !showAllCourses
     ? courses.filter(course => isEnrolled(course))
     : courses;
-
+  */
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
       <hr />
       {isStudent && (
-        <button
-          className="btn btn-primary float-end"
-          onClick={() => setShowAllCourses(!showAllCourses)}
-        >
-          {showAllCourses ? "Show Enrolled Courses" : "Show All Courses"}
-        </button>
+        <button onClick={() => setEnrolling(!enrolling)} className="float-end btn btn-primary" >
+        {enrolling ? "My Courses" : "All Courses"}
+      </button>
       )}
       <h2 id="wd-dashboard-published">
-        Published Courses ({filteredCourses.length})
+        Published Courses ({courses.length})
       </h2>
       <hr />
       <h5>
@@ -84,7 +90,7 @@ export default function Dashboard({
       />
       <div id="wd-dashboard-courses" className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
-          {filteredCourses.map((course) => (
+          {courses.map((course) => (
             <div key={course._id} className="wd-dashboard-course-col" style={{ width: "300px" }}>
               <div className="card rounded-3 overflow-hidden">
                 <Link
@@ -104,16 +110,13 @@ export default function Dashboard({
                     >
                       {course.description}
                     </p>
-                    {isStudent && (
-                      <button
-                        className={`btn ${isEnrolled(course) ? "btn-danger" : "btn-success"}`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handleEnrollmentToggle(course._id);
-                        }}
-                      >
-                        {isEnrolled(course) ? "Unenroll" : "Enroll"}
-                      </button>
+                    {enrolling && (
+                      <button onClick= {(event) => {
+                        event.preventDefault();
+                        updateEnrollment(course._id, !course.enrolled);
+                      }} className={`btn ${ course.enrolled ? "btn-danger" : "btn-success" } float-end`} >
+                      {course.enrolled ? "Unenroll" : "Enroll"}
+                    </button>
                     )}
                     
                       <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">

@@ -1,5 +1,5 @@
 [
-    { "_id": "A101", "title": "Propulsion Assignment", "course": "RS101" , "dueDate" : "12/12/2024" , "availableFrom" : "12/10/2024", 
+    { "_id": "A101", "title": "Propulsion Assignment", "course": "674c6fb6a5bc6b9a44be1e37" , "dueDate" : "12/12/2024" , "availableFrom" : "12/10/2024", 
       "availableUntil" :"12/14/2024", "points" : 100 , "description" : "Example Description"},
     { "_id": "A102", "title": "Combustion Analysis", "course": "RS101" , "dueDate" : "12/12/2024" , "availableFrom" : "12/10/2024", 
     "availableUntil" :"12/14/2024", "points" : 100 , "description" : "Example Description" },

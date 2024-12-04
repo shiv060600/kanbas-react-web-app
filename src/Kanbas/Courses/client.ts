@@ -1,11 +1,10 @@
 import axios from "axios";
-
-//const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
-const REMOTE_SERVER = "https://kanbase-node-server-app.onrender.com"
+const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
+//const REMOTE_SERVER = "https://kanbase-node-server-app.onrender.com"
 const COURSES_API = `${REMOTE_SERVER}/api/courses`;
 const axiosWithCredentials = axios.create({ withCredentials: true });
 export const fetchAllCourses = async () => {
-  const { data } = await axios.get(COURSES_API);
+  const { data } = await axiosWithCredentials.get(`${COURSES_API}`);
   return data;
 };
 export const deleteCourse = async (id: string) => {
@@ -29,9 +28,14 @@ export const createModuleForCourse = async (courseId: string, module: any) => {
     return response.data;
 };
 export const createCourse = async (course: any) => {
-  const response = await axiosWithCredentials.post('/api/courses', course);
+  const response = await axiosWithCredentials.post(`${COURSES_API}`, course);
   return response.data;
 };
+export const findUsersForCourse = async (courseId: string) => {
+  const response = await axios.get(`${COURSES_API}/${courseId}/users`);
+  return response.data;
+ };
+ 
   
 
   

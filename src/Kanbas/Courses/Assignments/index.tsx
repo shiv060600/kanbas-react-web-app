@@ -25,30 +25,28 @@ export default function Assignments() {
   const [dueDate, setDueDate] = useState("12/12/2024");
   const [availableFrom, setAvailableFrom] = useState("12/12/2024");
   const [availableUntil, setAvailableUntil] = useState("12/12/2024");
-  
-  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const [assignments , setAssignments] = useState<any[]>([]);
+
   const dispatch = useDispatch();
 
   const createAssignmentForCourse = async () => {
     if (!cid) return;
     const newAssignment = { name: assignmentName, course: cid , description : description , points : points, dueDate :dueDate, availableFrom : availableFrom, availableUntil: availableUntil };
     const assignment = await assignmentsClient.createAssignmentForCourse(cid, newAssignment);
-    dispatch(addAssignment(assignment));
+    setAssignments([...assignments, assignment]);
   };
   const removeAssignment = async (assignmentId: string) => {
     await assignmentsClient.deleteAssignment(assignmentId);
-    dispatch(deleteAssignment(assignmentId));
+    setAssignments(assignments.filter((assignment) => assignment._id !== assignmentId));
   };
-
-  
-
-  const fetchModules = async () => {
-    const modules = await assignmentsClient.findAssignmentsForCourse(cid as string);
-    dispatch(setAssignments(modules));
+  const fetchAssignments = async () => {
+    const assignments = await assignmentsClient.findAssignmentsForCourse(cid as string);
+    setAssignments(assignments);
   };
   useEffect(() => {
-    fetchModules();
+    fetchAssignments();
   }, []);
+
 
   const handleEditAssignment = (assignment: any) => {
     setAssignmentName(assignment.title);
@@ -87,7 +85,6 @@ export default function Assignments() {
       <br />
       <ul id="wd-assignment-list" className="list-group rounded-0">
         {assignments
-          .filter((assignment: any) => assignment.course === cid)
           .map((assignment: any) => (
             <li
               key={assignment._id}
@@ -104,7 +101,7 @@ export default function Assignments() {
                 />
                 <RiDeleteBin6Line
                   className="me-2"
-                  onClick={() => dispatch(deleteAssignment(assignment._id))}
+                  onClick={() => removeAssignment(assignment._id)}
                 />
               </span>
               <br />

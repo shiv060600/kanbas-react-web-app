@@ -13,6 +13,7 @@ export default function Modules() {
   const { cid } = useParams();  
   const [moduleName, setModuleName] = useState("");
   const { modules } = useSelector((state: any) => state.modulesReducer);
+  const [courses , setCourses] = useState<any[]>([]);
   const dispatch = useDispatch();
   const saveModule = async (module: any) => {
     await modulesClient.updateModule(module);
@@ -57,11 +58,13 @@ export default function Modules() {
                     updateModule({ ...module, name: e.target.value })
                   )
                 }
+                
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     saveModule({ ...module, editing: false });
                   }
                 }}
+                
                defaultValue={module.name}/>
               )}
               <ModuleControlButtons moduleId={module._id}
