@@ -19,7 +19,20 @@ export default function Modules() {
     await modulesClient.updateModule(module);
     dispatch(updateModule(module));
   };
-
+  /*
+  const updateModule = async() => {
+    await courseClient.updateCourse(course);
+      setCourses(
+        courses.map((c) => { 
+          if (c._id === course._id) {
+            return course;
+          } else {
+            return c;
+          }
+        })
+      );
+  };
+  */
   const removeModule = async (moduleId: string) => {
     await modulesClient.deleteModule(moduleId);
     dispatch(deleteModule(moduleId));
@@ -31,7 +44,6 @@ export default function Modules() {
     const module = await coursesClient.createModuleForCourse(cid, newModule);
     dispatch(addModule(module));
   };
-
   const fetchModules = async () => {
     const modules = await coursesClient.findModulesForCourse(cid as string);
     dispatch(setModules(modules));

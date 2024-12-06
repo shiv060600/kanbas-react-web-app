@@ -15,9 +15,11 @@ export const updateAssignment = async (assignment: any) => {
   return data;
 };
 
-export const findAssignmentsForCourse = async (courseId: string) => {
+export const findAssignmentsForCourse = async (courseId: any) => {
   const response = await axiosWithCredentials.get(`${COURSES_API}/${courseId}/assignments`);
+  console.log(response.data);
   return response.data;
+
 };
 
 export const createAssignmentForCourse = async (courseId: string, assignment: any) => {

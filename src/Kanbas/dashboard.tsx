@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleEnrollment } from "./Courses/Enrollments/reducer";
+import * as courseClient from "./Courses/client"
 
 
 export default function Dashboard({
@@ -29,6 +30,7 @@ export default function Dashboard({
   const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
   const dispatch = useDispatch();
   const [showAllCourses, setShowAllCourses] = useState(false);
+  const [users, setUsers] = useState<any[]>([]);
   console.log(courses);
   
 
@@ -37,6 +39,14 @@ export default function Dashboard({
     return enrollments.some(
       (en: any) => en.user === currentUser?._id && en.course === course._id
     );
+  };
+  const findUsersForCourse = async () => {
+    try {
+      const users = await courseClient.findUsersForCourse(currentUser._id);
+      setUsers(users);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleEnrollmentToggle = (courseId: string) => {
